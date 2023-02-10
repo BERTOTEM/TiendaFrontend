@@ -3,12 +3,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductoComponent } from './pages/producto/producto.component';
 import { ProductosComponent } from './pages/producto/Catalogo/productos/productos.component'
+import { EcommerceComponent } from './pages/ecommerce/ecommerce.component';
+import { ProductosCarritoComponent } from './pages/ecommerce/CatalogoCompras/productos-carrito/productos-carrito.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 const routes: Routes = [
   // {path:"",redirectTo : "catalogo",pathMatch:"full"},
   // { path: 'catalogo', component:ProductosComponent },
   // {path: '**', pathMatch: 'full', redirectTo:'catalogo'}
-  {path:"",redirectTo : "Productos/catalogo",pathMatch:"full"},
+  {path:"",redirectTo : "inicio",pathMatch:"full"},
+  { path: 'inicio', component:InicioComponent },
   {
     path: 'Productos',
     component: ProductoComponent,
@@ -18,7 +22,18 @@ const routes: Routes = [
         component:ProductosComponent ,
       }
     ]
+  },
+  {
+    path: 'Ecommers',
+    component: EcommerceComponent,
+    children: [
+      {
+        path: 'catalogoCompra',
+        component:ProductosCarritoComponent ,
+      }
+    ],
   }
+
 ];
 @NgModule({
   imports: [CommonModule,RouterModule.forRoot(routes)],

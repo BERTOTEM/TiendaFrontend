@@ -12,10 +12,12 @@ import { AppComponent } from './app.component';
 
 import { RouterModule } from '@angular/router';
 import { PagesModule } from './pages/pages.module';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InicioComponent
 
   ],
   imports: [

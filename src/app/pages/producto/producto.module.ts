@@ -13,14 +13,16 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './Catalogo/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
-  
+
   CrearComponent,
   EditComponent,
-  ProductosComponent
+  ProductosComponent,
+  NavbarComponent
   ],
   exports:[CrearComponent,
     EditComponent,

@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container">
   <app-crear > </app-crear>
   <input type="text" [(ngModel)]="ProductName" (ngModelChange)="buscar()" placeholder="Buscar">
@@ -14,8 +15,8 @@
 
 
               <div *ngIf="product1.enabled">
-              <input  type="number" [(ngModel)]="cantidad"  max="200" >
-              <button (click)="addToCart(product1.id,cantidad)"  class="btn btn-outline-warning">Añadir</button>
+            
+
               </div>
 
               <div *ngIf="!product1.enabled">

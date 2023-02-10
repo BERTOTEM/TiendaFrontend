@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductI } from 'src/app/pages/producto/models/product-i';
-import { ProductService } from 'src/app/pages/producto//Service/product.service';
-
-
+import { FacturaService } from '../../service/factura.service';
 @Component({
-  selector: 'app-productos',
-  templateUrl: './productos.component.html',
-  styleUrls: ['./productos.component.scss']
+  selector: 'app-productos-carrito',
+  templateUrl: './productos-carrito.component.html',
+  styleUrls: ['./productos-carrito.component.scss']
 })
-export class ProductosComponent {
+export class ProductosCarritoComponent {
   products: ProductI[] | any;
   product: ProductI[] | undefined;
   cart: Object[] = [];
@@ -20,7 +18,7 @@ export class ProductosComponent {
   ProductName!: string;
 
   constructor(
-    private service: ProductService,
+    private service: FacturaService,
     private route: Router
   ) { }
 
@@ -29,7 +27,7 @@ export class ProductosComponent {
   }
 
   getProducts(): void {
-    this.service.getAll().subscribe((data) => {
+    this.service.getPage(this.page).subscribe((data) => {
       this.products = data;
     });
 
@@ -37,6 +35,22 @@ export class ProductosComponent {
   getPage(page: number): void {
     this.page = page;
     this.getProducts();
+  }
+
+  isLast(): boolean {
+    let totalPeges: any = this.pages?.length;
+    return this.page == totalPeges - 1;
+  }
+
+  isFirst(): boolean {
+    return this.page == 0;
+  }
+
+  previousPage(): void {
+    !this.isFirst() ? (this.page--, this.getProducts()) : false;
+  }
+  nextPage(): void {
+    !this.isLast() ? (this.page++, this.getProducts()) : false;
   }
 
   buscar() {
@@ -53,20 +67,11 @@ export class ProductosComponent {
     })
 
   }
+  addToCart(product: string, cantidad: string) {
 
-  borrado(idBorrado: string) {
-    this.service.deleteLogico(idBorrado).subscribe({
-      next: data => {
-        console.log('este es el ID :>> ', idBorrado);
-        window.location.reload()
-      },
-      error: error => {
-        console.log(error);
-        console.log('este es el ID  del error :>> ', idBorrado);
-        //this.toastr.error("Digimon no encontrado", "Error de Busqueda");
-      }
-    })
-
+    this.cart.push({ product, cantidad })
+    console.log(this.cart);
+    this.cantidad = " "
   }
 
 

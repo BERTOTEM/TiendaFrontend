@@ -11,6 +11,7 @@ import { MessageService } from 'primeng/api';
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss']
+  
 })
 export class EditComponent {
   @Input() ProductEdit: ProductI = {

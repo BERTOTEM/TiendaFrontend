@@ -10,17 +10,22 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EcommerceComponent } from './ecommerce/ecommerce.component';
+import { EcommerceRoutingModule } from './ecommerce/ecommerce-routing.module';
+import { EcommerceModule } from './ecommerce/ecommerce.module';
 
 
 @NgModule({
-  declarations: [ProductoComponent],
-  exports:[ProductoComponent],
+  declarations: [ProductoComponent,EcommerceComponent],
+  exports:[ProductoComponent,EcommerceComponent],
   imports: [
     CommonModule,
     ProductoModule,
     RouterModule,
     ProductoRoutingModule,
     RouterModule,
+    EcommerceRoutingModule,
+    EcommerceModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
