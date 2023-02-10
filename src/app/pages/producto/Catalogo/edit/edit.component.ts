@@ -1,17 +1,19 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { ProductI } from 'src/app/Producto/models/product-i';
-import { ProductService } from 'src/app/Producto/Service/product.service';
+import { ProductI } from 'src/app/pages/producto/models/product-i';
+import { ProductService } from 'src/app/pages/producto//Service/product.service';
+
+import { MessageService } from 'primeng/api';
 
 @Component({
-  selector: 'app-crear',
-  templateUrl: './crear.component.html',
-  styleUrls: ['./crear.component.scss']
+  selector: 'app-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.scss']
 })
-export class CrearComponent {
-  ProductCrear: ProductI = {
+export class EditComponent {
+  @Input() ProductEdit: ProductI = {
     id:"",
     name:"",
     inInventory:0,
@@ -37,21 +39,20 @@ export class CrearComponent {
     this.modalService.open(content, { centered: true });
   }
 
-  CrearProduct() {
-    this.services.createProduct(this.ProductCrear).subscribe({
+  EditProduct() {
+    this.services.editProduc(this.ProductEdit).subscribe({
       next: data => {
-        this.toastr.success("Producto agregado al catalogo", "exito");
+
+        this.toastr.success("Producto Editado", "exito");
         console.log(data)
+
       },
       error: error => {
         console.log(error);
-        this.toastr.error("error", "Error de Creacion");
-        console.log(this.ProductCrear);
+        this.toastr.error("error", "Error de Edicion");
+        console.log(this.ProductEdit);
       }
-
-
     })
-
-
   }
+
 }

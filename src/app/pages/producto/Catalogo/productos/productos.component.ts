@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductI } from 'src/app/Producto/models/product-i';
-import { ProductService } from 'src/app/Producto/Service/product.service';
+import { ProductI } from 'src/app/pages/producto/models/product-i';
+import { ProductService } from 'src/app/pages/producto//Service/product.service';
+
 
 @Component({
   selector: 'app-productos',
@@ -74,4 +75,5 @@ export class ProductosComponent {
     console.log(this.cart);
     this.cantidad = " "
   }
+
 }

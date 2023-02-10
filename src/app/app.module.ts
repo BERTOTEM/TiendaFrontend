@@ -9,17 +9,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductosComponent } from './Producto/Catalogo/productos/productos.component';
-import { EditComponent } from './Producto/Catalogo/edit/edit.component';
-import { CrearComponent } from './Producto/Catalogo/crear/crear.component';
+
 import { RouterModule } from '@angular/router';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProductosComponent,
-    EditComponent,
-    CrearComponent
+    AppComponent
+
   ],
   imports: [
     BrowserModule,
@@ -29,7 +26,8 @@ import { RouterModule } from '@angular/router';
     NgbModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    RouterModule
+    RouterModule,
+    
 
 
   ],
