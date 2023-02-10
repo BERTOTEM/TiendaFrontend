@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { ProductI } from 'src/app/models/product-i';
-import { ProductService } from 'src/app/Service/product.service';
+import { ProductI } from 'src/app/Producto/models/product-i';
+import { ProductService } from 'src/app/Producto/Service/product.service';
 import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-edit',
@@ -43,7 +43,7 @@ export class EditComponent implements OnInit {
   EditProduct() {
     this.services.editProduc(this.ProductEdit).subscribe({
       next: data => {
-  
+
         this.toastr.success("Producto Editado", "exito");
         console.log(data)
 

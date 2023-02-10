@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { ProductI } from 'src/app/models/product-i';
-import { ProductService } from 'src/app/Service/product.service';
+import { ProductI } from 'src/app/Producto/models/product-i';
+import { ProductService } from 'src/app/Producto/Service/product.service';
 
 @Component({
   selector: 'app-crear',

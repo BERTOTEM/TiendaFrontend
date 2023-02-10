@@ -9,9 +9,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductosComponent } from './Catalogo/productos/productos.component';
-import { EditComponent } from './Catalogo/edit/edit.component';
-import { CrearComponent } from './Catalogo/crear/crear.component';
+import { ProductosComponent } from './Producto/Catalogo/productos/productos.component';
+import { EditComponent } from './Producto/Catalogo/edit/edit.component';
+import { CrearComponent } from './Producto/Catalogo/crear/crear.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CrearComponent } from './Catalogo/crear/crear.component';
     FormsModule,
     NgbModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule
 
 
   ],
