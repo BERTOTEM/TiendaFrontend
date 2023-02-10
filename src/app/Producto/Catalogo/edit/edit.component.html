@@ -1,0 +1,70 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+  </div>
+  <div class="modal-body">
+
+    <div class="container ">
+      <div class="card text-center">
+        <div class="card-header font2">
+          <b>Edit Producto</b>
+        </div>
+        <div class="card-body p-10 ">
+          <div class="form-floating font2" style="margin-top: 20px;">
+        
+            <div class="row g-3">
+              <div class="col-md-10">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" [(ngModel)]="ProductEdit.name" >
+              </div>
+              <div class="col-md-6">
+                <label class="form-label ">inInventory</label>
+                <input type="text" class="form-control" [(ngModel)]="ProductEdit.inInventory" >
+              </div>
+              <div class="col-md-3">
+                <label for="validationDefault04" class="form-label">State</label>
+                <input type="text" class="form-control" [(ngModel)]="ProductEdit.state" >
+              </div>
+
+              <div class="col-md-3">
+                <label for="validationDefault04" class="form-label">enabled</label>
+                <input type="text" class="form-control" [(ngModel)]="ProductEdit.enabled" >
+              </div>
+              <div class="col-md-2">
+                <label class="form-label ">min</label>
+                <input type="text" class="form-control" [(ngModel)]="ProductEdit.min"  >
+              </div>
+              <div class="col-md-2">
+                <label class="form-label ">max</label>
+                <input type="text" class="form-control" [(ngModel)]="ProductEdit.max"  >
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">price</label>
+                <input type="text" class="form-control" [(ngModel)]="ProductEdit.price" >
+              </div>
+
+              <div class="col-12">
+                <button pButton (click)="(EditProduct())" pRipple type="button"
+            class="btn btn-warning">Editar</button>
+              </div>
+            </div>
+
+
+
+
+
+            <br>
+          </div>
+
+
+          <hr>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button"  class="btn btn-warning" (click)="modal.close('Close click')">cerrar</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-warning" (click)="openVerticallyCentered(content)">Editar</button>
