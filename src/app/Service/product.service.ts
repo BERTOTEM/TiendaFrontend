@@ -30,23 +30,20 @@ export class ProductService {
     let direction = this.url + 'getName/' + name;
     return this.http.get<ProductI>(direction);
   }
-  saveProduct(product: ProductI): Observable<any> {
-    let direction = this.url + 'create';
-    return this.http.post<any>(direction, product, {
-      responseType: 'text' as 'json',
+
+  editProduc(product: ProductI): Observable<ProductI> {
+    let direction = this.url + 'update';
+    return this.http.put<any>(direction, product,{
+      responseType: 'text' as 'json'
     });
   }
-  editProduc(product: ProductI): Observable<any> {
-    let direction = this.url + 'update';
-    return this.http.put<any>(direction, product);
-  }
-  updateIDInventario(id: any, quantity: any): Observable<any> {
+  updateIDInventario(id: any, quantity: any): Observable<ProductI> {
     let direction = this.url + 'update/'+id+'/'+quantity;
     return this.http.patch<any>(direction,{
       responseType: 'text' as 'json',
     });
   }
-  deleteLogico(id: any): Observable<any> {
+  deleteLogico(id: any): Observable<ProductI> {
     let direction = this.url + 'changeState/'+id;
     return this.http.patch<any>(direction,{
       responseType: 'text' as 'json',

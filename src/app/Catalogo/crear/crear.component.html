@@ -22,10 +22,50 @@
 
 
 
+
+
+              <div class="row g-3">
+                <div class="col-md-10">
+                  <label class="form-label">Name</label>
+                  <input type="text" class="form-control" [(ngModel)]="ProductCrear.name" >
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label ">inInventory</label>
+                  <input type="text" class="form-control" [(ngModel)]="ProductCrear.inInventory" >
+                </div>
+                <div class="col-md-3">
+                  <label for="validationDefault04" class="form-label">State</label>
+                  <input type="text" class="form-control" [(ngModel)]="ProductCrear.state" >
+                </div>
+
+                <div class="col-md-3">
+                  <label for="validationDefault04" class="form-label">enabled</label>
+                  <input type="text" class="form-control" [(ngModel)]="ProductCrear.enabled" >
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label ">min</label>
+                  <input type="text" class="form-control" [(ngModel)]="ProductCrear.min"  >
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label ">max</label>
+                  <input type="text" class="form-control" [(ngModel)]="ProductCrear.max"  >
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">price</label>
+                  <input type="text" class="form-control" [(ngModel)]="ProductCrear.price" >
+                </div>ProductCrear
+
+                <div class="col-12">
+                  <button pButton (click)="(CrearProduct())" pRipple type="button" label="Actualizar Producto"
+                  class="btn btn-warning"></button>n>
+                </div>
+              </div>
+
+
+
             <br>
           </div>
-          <button pButton (click)="(CrearProduct())" pRipple type="button" label="Actualizar Producto"
-            class="btn btn-warning"></button>
+
 
           <hr>
         </div>
@@ -34,8 +74,8 @@
 
   </div>
   <div class="modal-footer">
-    <button type="button" label="Cerrar" class="btn btn-warning"
-      (click)="modal.close('Close click')"></button>
+    <button type="button"  class="btn btn-warning"
+      (click)="modal.close('Close click')">cerrar</button>
   </div>
 </ng-template>
 

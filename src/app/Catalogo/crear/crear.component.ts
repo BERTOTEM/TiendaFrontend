@@ -40,12 +40,12 @@ export class CrearComponent {
   CrearProduct() {
     this.services.createProduct(this.ProductCrear).subscribe({
       next: data => {
-        this.toastr.success("exito", "exito");
+        this.toastr.success("Producto agregado al catalogo", "exito");
         console.log(data)
       },
       error: error => {
         console.log(error);
-        this.toastr.error("error", "Error de Edicion");
+        this.toastr.error("error", "Error de Creacion");
         console.log(this.ProductCrear);
       }
 

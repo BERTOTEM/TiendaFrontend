@@ -43,8 +43,10 @@ export class EditComponent implements OnInit {
   EditProduct() {
     this.services.editProduc(this.ProductEdit).subscribe({
       next: data => {
-        this.toastr.success("Producto agregado al catalogo", "exito");
+  
+        this.toastr.success("Producto Editado", "exito");
         console.log(data)
+
       },
       error: error => {
         console.log(error);
