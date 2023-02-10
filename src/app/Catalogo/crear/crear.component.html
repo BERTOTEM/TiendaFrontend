@@ -1,0 +1,42 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+  </div>
+  <div class="modal-body">
+
+    <div class="container">
+      <div class="card text-center">
+        <div class="card-header font2">
+          <b>Edit Respuestas</b>
+        </div>
+        <div class="card-body p-4">
+          <div class="form-floating font2" style="margin-top: 20px;">
+
+              <input type="text"[(ngModel)]="ProductCrear.name">
+              <input type="text"[(ngModel)]="ProductCrear.inInventory">
+              <input type="text"[(ngModel)]="ProductCrear.enabled">
+              <input type="text"[(ngModel)]="ProductCrear.min">
+              <input type="text"[(ngModel)]="ProductCrear.max">
+              <input type="text"[(ngModel)]="ProductCrear.img">
+              <input type="text"[(ngModel)]="ProductCrear.state">
+              <input type="text"[(ngModel)]="ProductCrear.price">
+
+
+
+            <br>
+          </div>
+          <button pButton (click)="(CrearProduct())" pRipple type="button" label="Actualizar Producto"
+            class="btn btn-warning"></button>
+
+          <hr>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" label="Cerrar" class="btn btn-warning"
+      (click)="modal.close('Close click')"></button>
+  </div>
+</ng-template>
+
+<button class="btn btn-warning" (click)="openVerticallyCentered(content)">Agregar Producto al Catalogo</button>

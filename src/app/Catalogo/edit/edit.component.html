@@ -1,0 +1,44 @@
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+  </div>
+  <div class="modal-body">
+
+    <div class="container">
+      <div class="card text-center">
+        <div class="card-header font2">
+          <b>Edit Respuestas</b>
+        </div>
+        <div class="card-body p-4">
+          <div class="form-floating font2" style="margin-top: 20px;">
+              <input type="text"[(ngModel)]="ProductEdit.id">
+              <input type="text"[(ngModel)]="ProductEdit.name">
+              <input type="text"[(ngModel)]="ProductEdit.inInventory">
+              <input type="text"[(ngModel)]="ProductEdit.enabled">
+              <input type="text"[(ngModel)]="ProductEdit.min">
+              <input type="text"[(ngModel)]="ProductEdit.max">
+              
+              <input type="text"[(ngModel)]="ProductEdit.state">
+              <input type="text"[(ngModel)]="ProductEdit.price">
+
+
+
+            <br>
+          </div>
+          <button pButton (click)="(EditProduct())" pRipple type="button" label="Actualizar Producto"
+            class="btn btn-warning"></button>
+
+          <hr>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" label="Cerrar" class="btn btn-warning"
+      (click)="modal.close('Close click')"></button>
+  </div>
+</ng-template>
+
+<button class="btn btn-warning" (click)="openVerticallyCentered(content)">Editar</button>
+

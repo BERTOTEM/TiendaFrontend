@@ -18,6 +18,10 @@ export class ProductService {
     let direction = this.url + 'pagination/' + page;
     return this.http.get<ProductI[]>(direction);
   }
+  getAll(): Observable<ProductI[]>{
+    let direction = this.url + 'getAllProducts' ;
+    return this.http.get<ProductI[]>(direction);
+  }
   getProduct(id: any): Observable<ProductI> {
     let direction = this.url + 'get/' + id;
     return this.http.get<ProductI>(direction);
@@ -34,7 +38,7 @@ export class ProductService {
   }
   editProduc(product: ProductI): Observable<any> {
     let direction = this.url + 'update';
-    return this.http.post<any>(direction, product);
+    return this.http.put<any>(direction, product);
   }
   updateIDInventario(id: any, quantity: any): Observable<any> {
     let direction = this.url + 'update/'+id+'/'+quantity;
@@ -47,6 +51,12 @@ export class ProductService {
     return this.http.patch<any>(direction,{
       responseType: 'text' as 'json',
     });
+  }
+  createProduct(product : ProductI) : Observable<ProductI> {
+    let direction = this.url + 'create';
+    return this.http.post<any>(direction, product, {
+      responseType : 'text' as 'json'
+    })
   }
 
 
