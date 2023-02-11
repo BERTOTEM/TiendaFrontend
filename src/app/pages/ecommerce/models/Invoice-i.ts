@@ -1,9 +1,9 @@
 export  interface InvoiceI{
   id:string;
-  Idtype:string;
-  Date:string;
+  idtype:string;
+  date:string;
   clientId:string;
-  ClientName:string;
+  clientName:string;
   products:[];
 
 }
