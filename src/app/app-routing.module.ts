@@ -6,6 +6,7 @@ import { ProductosComponent } from './pages/producto/Catalogo/productos/producto
 import { EcommerceComponent } from './pages/ecommerce/ecommerce.component';
 import { ProductosCarritoComponent } from './pages/ecommerce/CatalogoCompras/productos-carrito/productos-carrito.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { BuyComponent } from './pages/ecommerce/CatalogoCompras/buy/buy.component';
 
 const routes: Routes = [
   // {path:"",redirectTo : "catalogo",pathMatch:"full"},
@@ -30,7 +31,11 @@ const routes: Routes = [
       {
         path: 'catalogoCompra',
         component:ProductosCarritoComponent ,
-      }
+      },
+      {
+        path: 'Compra',
+        component:BuyComponent ,
+      },
     ],
   },
   {path: '**', pathMatch: 'full', redirectTo:'inicio'}

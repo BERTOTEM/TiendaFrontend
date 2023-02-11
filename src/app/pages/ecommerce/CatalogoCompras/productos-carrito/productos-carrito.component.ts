@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductI } from 'src/app/pages/producto/models/product-i';
 import { FacturaService } from '../../service/factura.service';
@@ -9,6 +9,7 @@ import { FacturaService } from '../../service/factura.service';
 })
 export class ProductosCarritoComponent {
   products: ProductI[] | any;
+  productBuy!: ProductI
   product: ProductI[] | undefined;
   cart: Object[] = [];
   pages: Array<number> | undefined;
@@ -67,11 +68,14 @@ export class ProductosCarritoComponent {
     })
 
   }
-  addToCart(product: string, cantidad: string) {
+  addToCart() {
+    // product: string, cantidad: string
+    // this.cart.push({ product, cantidad })
+    // console.log(this.cart);
+    // this.cantidad = " "
+    this.route.navigate(["/Ecommers/Compra"])
 
-    this.cart.push({ product, cantidad })
-    console.log(this.cart);
-    this.cantidad = " "
+    console.log(this.products)
   }
 
 

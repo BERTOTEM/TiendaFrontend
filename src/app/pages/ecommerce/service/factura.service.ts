@@ -20,5 +20,10 @@ export class FacturaService {
     let direction = this.url + 'getName/' + name;
     return this.http.get<ProductI>(direction);
   }
-  
+
+  getProductById(id:string) : Observable<ProductI> {
+    let direction = this.url +'get/'+id;
+    return this.http.get<ProductI>(direction);
+  }
+
 }

@@ -12,12 +12,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './CatalogoCompras/navbar/navbar.component';
+import { BuyComponent } from './CatalogoCompras/buy/buy.component';
 
 
 @NgModule({
   declarations: [
     ProductosCarritoComponent,
     NavbarComponent,
+    BuyComponent,
 
   ],
   exports:[ProductosCarritoComponent],

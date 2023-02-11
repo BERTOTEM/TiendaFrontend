@@ -8,24 +8,28 @@
             <div class="card-body">
               <h5 class="card-text"> </h5>
               <h5 class="card-text"  > {{product1.name}}</h5>
-              <p class="card-text"> {{product1.price| currency: 'COP'}}</p>
+              <p class="card-text"> {{product1.price | currency: 'COP'}}</p>
               <div *ngIf="product1.enabled">
-              <input  type="text" [(ngModel)]="cantidad"  max="200" >
-              <button (click)="addToCart(product1.id,cantidad)"  class="btn btn-outline-warning">Añadir</button>
+                <button    class="btn btn-outline-warning" [routerLink]="['/Ecommers/Compra']"  [queryParams]='{id: product1.id }'  >Detalle</button>
+
               </div>
+            </div>
               <div *ngIf="!product1.enabled">
                 <p class="notice">Producto Agotado</p>
               </div>
+
+
+
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-<div class="">
+
+<div class="confi">
   <ul class="pagination justify-content-center">
     <li class="page-item">
-      <a class="page-link" (click)="previousPage()" aria-label="Previous">
+      <a class="page-link"   class="btn btn-warning" (click)="previousPage()" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
@@ -33,7 +37,7 @@
       <a class="page-link" (click)="getPage(i)">{{ i + 1 }}</a>
     </li>
     <li class="page-item">
-      <a class="page-link" (click)="nextPage()" aria-label="Next">
+      <a class="page-link"  class="btn btn-warning" (click)="nextPage()" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
