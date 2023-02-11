@@ -13,8 +13,9 @@
               <h5 class="card-text"> </h5>
               <h5 class="card-text"  > {{productBuy2.name}}</h5>
               <p class="card-text"> {{productBuy2.price| currency: 'COP'}}</p>
+              <p class="card-text"> {{productBuy2.inInventory}}</p>
               <div *ngIf="productBuy2.enabled">
-              <input type="number"  min="1" max="200" [(ngModel)]="cantidad">
+              <input type="number" disabled="false"  min="1" max="200" [(ngModel)]="cantidad">
               <button (click)="addToCart(productBuy2.id,cantidad)"  class="btn btn-outline-warning">Añadir Al carrito</button>
             </div>
               <div *ngIf="!productBuy2.enabled">
@@ -24,6 +25,9 @@
           </div>
         </div>
         </div>
+        <div class="col-4">
+
+          <button  class="btn btn-outline-warning button2"  [routerLink]="['/Ecommers/Factura']" >Factura de Compra</button></div>
         </div>
     </div>
 

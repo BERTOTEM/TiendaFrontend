@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { EcommerceRoutingModule } from './ecommerce-routing.module';
 import { ProductosCarritoComponent } from './CatalogoCompras/productos-carrito/productos-carrito.component';
-import { EcommerceComponent } from './ecommerce.component';
+
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,6 +13,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './CatalogoCompras/navbar/navbar.component';
 import { BuyComponent } from './CatalogoCompras/buy/buy.component';
+import { FacturaComponent } from './CatalogoCompras/factura/factura.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { BuyComponent } from './CatalogoCompras/buy/buy.component';
     ProductosCarritoComponent,
     NavbarComponent,
     BuyComponent,
+    FacturaComponent,
 
   ],
   exports:[ProductosCarritoComponent],
