@@ -53,7 +53,7 @@ export class BuyComponent {
     this.aux=(JSON.parse(localStorage.getItem('carrito')||'[]'))
 
     price=price*cantidad
-    console.log(price);
+    
     if (cantidad <= this.productBuy2.max &&
       this.productBuy2.inInventory - this.productBuy2.min >= cantidad) {
 

@@ -14,7 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './CatalogoCompras/navbar/navbar.component';
 import { BuyComponent } from './CatalogoCompras/buy/buy.component';
 import { FacturaComponent } from './CatalogoCompras/factura/factura.component';
-
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
+import { HistorialCompraComponent } from './CatalogoCompras/historial-compra/historial-compra.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FacturaComponent } from './CatalogoCompras/factura/factura.component';
     NavbarComponent,
     BuyComponent,
     FacturaComponent,
+    HistorialCompraComponent,
 
   ],
   exports:[ProductosCarritoComponent],
@@ -35,6 +37,7 @@ import { FacturaComponent } from './CatalogoCompras/factura/factura.component';
     NgbModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    InfiniteScrollModule
   ]
 })
 export class EcommerceModule { }

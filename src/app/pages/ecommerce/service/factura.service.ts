@@ -26,6 +26,10 @@ export class FacturaService {
     let direction = this.url +'get/'+id;
     return this.http.get<ProductI>(direction);
   }
+  getAllInvoice(): Observable<InvoiceI[]>{
+    let direction = this.url + 'getAllInvoice' ;
+    return this.http.get<InvoiceI[]>(direction);
+  }
 
 
   updateIDInventario(id: any, quantity: any): Observable<ProductI> {

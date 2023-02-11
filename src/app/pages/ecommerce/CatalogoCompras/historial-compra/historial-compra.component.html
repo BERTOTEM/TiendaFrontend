@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<div class="container">
+      <div class="row">
+        <div class="col-sm-5"  *ngFor="let factura of invoices">
+          <div class="card text-bg-dark border-warning h-500" style="width: 200;">
+            <img src="https://cdn-icons-png.flaticon.com/512/5673/5673649.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-text"> </h5>
+              <h5 class="card-text"  > {{factura.clientName}}</h5>
+              <p class="card-text"> Id: {{factura.clientId}}</p>
+              <div *ngFor="let producto of factura.products">
+              <p class="card-text">  {{producto.name}} {{producto.cantidad}} {{producto.price}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+

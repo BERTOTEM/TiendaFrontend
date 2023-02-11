@@ -20,6 +20,9 @@ export class FacturaComponent {
     products:[],
   }
   cart:productsI[]=[]
+  agregarProducto:number=4
+  throttle :number=0;
+  distance: number=1;
   constructor(
     private services: FacturaService,
     private toastr: ToastrService,
@@ -28,28 +31,20 @@ export class FacturaComponent {
   ngOnInit(): void {
 
     this.InvoiceCrear.products=(JSON.parse(localStorage.getItem('carrito')||'[]'))
-    // this.cart=[
-    //    ...this.InvoiceCrear.products,
-    //    {
-    //     product,
-    //     cantidad:,
-    //     name:,
-    //     price:,
-    //    }
-    //  ]
     console.log(this.InvoiceCrear)
   }
   CrearInvoice() {
     this.services.createInvoice(this.InvoiceCrear).subscribe({
       next: data => {
 
-        this.toastr.success("Producto agregado al catalogo", "exito");
+        this.toastr.success("Compra Realizada con exito", "exito");
         console.log(data)
         localStorage.clear();
+        this.route.navigate(["/Ecommers/catalogoCompra"])
       },
       error: error => {
         console.log(error);
-        this.toastr.error("error", "Error de Creacion");
+        this.toastr.error("error", "Error de Pago");
         console.log(this.InvoiceCrear);
       }
 
@@ -57,6 +52,11 @@ export class FacturaComponent {
     })
 
 
+  }
+  onScroll() {
+    this.agregarProducto=this.agregarProducto+=4
+    this.cart=this.InvoiceCrear.products?.slice(0,this.agregarProducto);
+    console.log("cargar mas datos")
   }
 
 }
