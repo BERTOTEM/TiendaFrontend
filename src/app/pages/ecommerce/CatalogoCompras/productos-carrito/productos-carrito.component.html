@@ -1,8 +1,8 @@
+<app-navbar></app-navbar>
 <div class="container">
-
   <input type="text" [(ngModel)]="ProductName" (ngModelChange)="buscar()" placeholder="Buscar">
       <div class="row">
-        <div class="col-sm-3"  *ngFor="let product1 of products">
+        <div class="col-sm-2"  *ngFor="let product1 of products">
           <div class="card text-bg-dark border-warning h-500" style="width: 200;">
             <img [src]="product1.img" class="card-img-top" alt="...">
             <div class="card-body">
@@ -10,7 +10,7 @@
               <h5 class="card-text"  > {{product1.name}}</h5>
               <p class="card-text"> {{product1.price| currency: 'COP'}}</p>
               <div *ngIf="product1.enabled">
-              <input  type="number" [(ngModel)]="cantidad"  max="200" >
+              <input  type="text" [(ngModel)]="cantidad"  max="200" >
               <button (click)="addToCart(product1.id,cantidad)"  class="btn btn-outline-warning">Añadir</button>
               </div>
               <div *ngIf="!product1.enabled">

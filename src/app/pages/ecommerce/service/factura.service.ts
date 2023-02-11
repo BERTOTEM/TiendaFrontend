@@ -20,4 +20,5 @@ export class FacturaService {
     let direction = this.url + 'getName/' + name;
     return this.http.get<ProductI>(direction);
   }
+  
 }

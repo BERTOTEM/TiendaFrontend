@@ -32,8 +32,8 @@ const routes: Routes = [
         component:ProductosCarritoComponent ,
       }
     ],
-  }
-
+  },
+  {path: '**', pathMatch: 'full', redirectTo:'inicio'}
 ];
 @NgModule({
   imports: [CommonModule,RouterModule.forRoot(routes)],

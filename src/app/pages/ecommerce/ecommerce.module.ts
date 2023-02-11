@@ -11,11 +11,13 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './CatalogoCompras/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     ProductosCarritoComponent,
+    NavbarComponent,
 
   ],
   exports:[ProductosCarritoComponent],
