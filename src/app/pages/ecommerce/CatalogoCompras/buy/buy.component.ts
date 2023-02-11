@@ -29,7 +29,7 @@ export class BuyComponent {
     state: true,
     price: 0,
   };
-
+  aux:any=[]
 
   constructor(
     private services: FacturaService,
@@ -44,14 +44,30 @@ export class BuyComponent {
     })
 
 
+
+
   }
 
-  addToCart(product: string, cantidad: number) {
+  addToCart(product: string, cantidad: number,name:string,price:number) {
+
+    this.aux=(JSON.parse(localStorage.getItem('carrito')||'[]'))
+
+    price=price*cantidad
+    console.log(price);
     if (cantidad <= this.productBuy2.max &&
       this.productBuy2.inInventory - this.productBuy2.min >= cantidad) {
-      this.cart.push({ product, cantidad })
+
+        this.cart=[
+          ...this.aux,
+         {
+          product,
+          cantidad,
+          name,
+          price,
+          }
+        ]
       localStorage.setItem('carrito', JSON.stringify(this.cart));
-      console.log(this.cart);
+
       this.services.updateIDInventario(product, cantidad).subscribe((data) => {
         console.log(data)
       })

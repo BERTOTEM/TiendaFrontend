@@ -16,7 +16,7 @@
               <p class="card-text"> {{productBuy2.inInventory}}</p>
               <div *ngIf="productBuy2.enabled">
               <input type="number" disabled="false"  min="1" max="200" [(ngModel)]="cantidad">
-              <button (click)="addToCart(productBuy2.id,cantidad)"  class="btn btn-outline-warning">Añadir Al carrito</button>
+              <button (click)="addToCart(productBuy2.id,cantidad,productBuy2.name,productBuy2.price)"  class="btn btn-outline-warning">Añadir Al carrito</button>
             </div>
               <div *ngIf="!productBuy2.enabled">
                 <p class="notice">Producto Agotado</p>

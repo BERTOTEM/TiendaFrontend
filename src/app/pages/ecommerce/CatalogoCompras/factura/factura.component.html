@@ -1,37 +1,66 @@
 <app-navbar></app-navbar>
 
 <div class="container">
-<div class="row g-3">
-  <div class="col-md-6">
+<div class="row">
+  <div class="col-6  align-self-center"   >
+  <div class="col-md-8">
     <label  class="form-label">Nombre</label>
     <input type="text" class="form-control"  [(ngModel)]="InvoiceCrear.clientName" >
   </div>
 
-  <div class="col-10">
-    <label for="inputAddress" class="form-label">Fecha de compra</label>
-    <input type="text" class="form-control" [(ngModel)]="InvoiceCrear.date" >
-  </div>
 
-  <div class="col-md-6">
+  <div class="col-md-8">
     <label for="inputCity" class="form-label">Numero de identificacion</label>
     <input type="text" class="form-control"[(ngModel)]="InvoiceCrear.clientId" >
   </div>
 
-  <div class="col-md-2">
+  <div class="col-md-4">
     <label  class="form-label">Tipo de Id</label>
     <input type="text" class="form-control"[(ngModel)]="InvoiceCrear.idtype" >
   </div>
   <br>
   <br>
 
-</div>
 
 <div class="col-md-10">
   <label  class="form-label"> Carrito de compra</label>
-  <textarea class="form-control" [(ngModel)]="InvoiceCrear.products"></textarea>
+
+
+
+
+
 </div>
 <div class="col-12">
   <button pButton (click)="(CrearInvoice())" pRipple type="button" label="Actualizar Producto"
   class="btn btn-warning">Pagar</button>
 </div>
+</div>
+
+
+<div class="col-6  align-self-center"   >
+<div >
+<div *ngFor="let Producto of InvoiceCrear.products">
+<div class="list-group ">
+  <div class="bg-warning tarjeta" aria-current="true">
+   <div class="container">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><div> {{Producto.name}}  </div></h5>
+      <small>now</small>
+    </div>
+    <p class="mb-1">Cantidad adquirida {{Producto.cantidad}} unidades</p>
+    <small>total {{Producto.price| currency: 'COP' }}</small>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
 </div>
