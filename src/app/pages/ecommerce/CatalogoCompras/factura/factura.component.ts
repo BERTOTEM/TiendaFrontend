@@ -30,7 +30,8 @@ export class FacturaComponent {
   ){}
   ngOnInit(): void {
 
-    this.InvoiceCrear.products=(JSON.parse(localStorage.getItem('carrito')||'[]'))
+    this.InvoiceCrear.products=(JSON
+      .parse(localStorage.getItem('carrito')||'[]'))
     console.log(this.InvoiceCrear)
   }
   CrearInvoice() {
