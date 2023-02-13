@@ -25,3 +25,29 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Objetivo
+
+Funcionalidades:
+###### ●	Consumo de los dos back-end
+###### ●	Uso adecuado de rutas
+###### ●	Conexión Mongo 
+###### ●	CRUD 
+###### ●  E-commerce
+###### ●	Uso de bootstrap 5 y preprocesador CSS 3 puntos
+###### ●	Uso de Swagger 
+###### ●	Historial de compra
+###### ●	Carrito de compra
+
+
+
+### Herramientas
+
+![](https://d1v8cmtpnjamtp.cloudfront.net/courses/BO/logo_1645636404095.svg)
+![](https://cdn.iconscout.com/icon/free/png-256/angular-226066.png)
+
+
+
+### Backs producto y Carrito
+###### ●	https://github.com/BERTOTEM/ProductoBack.git
+###### ●	https://github.com/BERTOTEM/Compras.git
