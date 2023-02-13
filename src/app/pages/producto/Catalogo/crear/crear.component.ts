@@ -42,15 +42,33 @@ export class CrearComponent {
   CrearProduct() {
     this.services.createProduct(this.ProductCrear).subscribe({
       next: data => {
-        this.toastr.success("Producto agregado al catalogo", "exito");
-        console.log(data)
+        if(this.ProductCrear.img.length >20 &&this.ProductCrear.name.length > 3 && this.ProductCrear.min <this.ProductCrear.max && this.ProductCrear.inInventory >0
+        ){
+          this.toastr.success("Producto agregado al catalogo", "exito");
+          console.log(data)
+          setTimeout(() => {
+            window.location.reload();
+            }, 1000);
+        }if(this.ProductCrear.img.length <=20){
+          this.toastr.info("Uri de imagen muy corta!", "Info");
+        }
+        if(this.ProductCrear.name.length <=3){
+          this.toastr.info("Nombre muy corto!", "Info");
+        }
+        if(this.ProductCrear.min >= this.ProductCrear.max){
+          this.toastr.info("El min tiene un valor mayor o igual al max!", "Info");
+        }
+        if(this.ProductCrear.inInventory==0){
+          this.toastr.info("El invenario es 0!", "Info");
+        }
+
+
       },
       error: error => {
         console.log(error);
         this.toastr.error("error", "Error de Creacion");
         console.log(this.ProductCrear);
       }
-
 
     })
 

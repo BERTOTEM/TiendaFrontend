@@ -6,24 +6,10 @@
     <div class="container">
       <div class="card text-center">
         <div class="card-header font2">
-          <b>Edit Respuestas</b>
+          <b>Crear Producto</b>
         </div>
         <div class="card-body p-4">
           <div class="form-floating font2" style="margin-top: 20px;">
-
-              <input type="text"[(ngModel)]="ProductCrear.name">
-              <input type="text"[(ngModel)]="ProductCrear.inInventory">
-              <input type="text"[(ngModel)]="ProductCrear.enabled">
-              <input type="text"[(ngModel)]="ProductCrear.min">
-              <input type="text"[(ngModel)]="ProductCrear.max">
-              <input type="text"[(ngModel)]="ProductCrear.img">
-              <input type="text"[(ngModel)]="ProductCrear.state">
-              <input type="text"[(ngModel)]="ProductCrear.price">
-
-
-
-
-
               <div class="row g-3">
                 <div class="col-md-10">
                   <label class="form-label">Name</label>
@@ -53,11 +39,14 @@
                 <div class="col-md-6">
                   <label class="form-label">price</label>
                   <input type="text" class="form-control" [(ngModel)]="ProductCrear.price" >
-                </div>ProductCrear
-
+                </div>
+                <div class="col-md-10">
+                  <label class="form-label">Imagen</label>
+                  <input type="text" class="form-control" [(ngModel)]="ProductCrear.img" >
+                </div>
                 <div class="col-12">
                   <button pButton (click)="(CrearProduct())" pRipple type="button" label="Actualizar Producto"
-                  class="btn btn-warning"></button>
+                  class="btn btn-warning">ProductCrear</button>
                 </div>
               </div>
 

@@ -11,7 +11,7 @@ import { MessageService } from 'primeng/api';
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss']
-  
+
 })
 export class EditComponent {
   @Input() ProductEdit: ProductI = {
@@ -43,10 +43,25 @@ export class EditComponent {
   EditProduct() {
     this.services.editProduc(this.ProductEdit).subscribe({
       next: data => {
-
+        if(this.ProductEdit.img.length >20 &&this.ProductEdit.name.length > 3 && this.ProductEdit.min <this.ProductEdit.max && this.ProductEdit.inInventory >0){
         this.toastr.success("Producto Editado", "exito");
         console.log(data)
-
+        setTimeout(() => {
+          window.location.reload();
+          }, 1000);
+          }
+        if(this.ProductEdit.img.length <=20){
+          this.toastr.info("Uri de imagen muy corta!", "Info");
+        }
+        if(this.ProductEdit.name.length <=3){
+          this.toastr.info("Nombre muy corto!", "Info");
+        }
+        if(this.ProductEdit.min >= this.ProductEdit.max){
+          this.toastr.info("El min tiene un valor mayor o igual al max!", "Info");
+        }
+        if(this.ProductEdit.inInventory==0){
+          this.toastr.info("El invenario es 0!", "Info");
+        }
       },
       error: error => {
         console.log(error);

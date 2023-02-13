@@ -17,7 +17,6 @@ export class ProductosCarritoComponent {
   page: number = 0;
   idBorrado!: string;
   ProductName!: string;
-  paginas: Array<number> | undefined;
 
   constructor(
     private service: FacturaService,
@@ -34,8 +33,8 @@ export class ProductosCarritoComponent {
     });
     this.service
       .getTotalPages()
-      .subscribe((data) => (this.paginas = new Array(data)));
-
+      .subscribe((data) => (this.pages = new Array(data)));
+      console.log(this.pages)
   }
   getPage(page: number): void {
     this.page = page;
@@ -62,7 +61,7 @@ export class ProductosCarritoComponent {
     this.service.getProductName(this.ProductName).subscribe({
       next: data => {
         this.products = data;
-        console.log('digimonSolo :>> ', this.products);
+
       },
       error: error => {
         this.getProducts();
