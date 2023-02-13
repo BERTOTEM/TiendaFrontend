@@ -17,6 +17,7 @@ export class ProductosCarritoComponent {
   page: number = 0;
   idBorrado!: string;
   ProductName!: string;
+  paginas: Array<number> | undefined;
 
   constructor(
     private service: FacturaService,
@@ -31,6 +32,9 @@ export class ProductosCarritoComponent {
     this.service.getPage(this.page).subscribe((data) => {
       this.products = data;
     });
+    this.service
+      .getTotalPages()
+      .subscribe((data) => (this.paginas = new Array(data)));
 
   }
   getPage(page: number): void {

@@ -12,7 +12,7 @@ import { FacturaService } from '../../service/factura.service';
 })
 export class BuyComponent {
   cart: Object[] = [];
-  cantidad: number = 0;
+  cantidad: number = 1;
   product1: any;
   valores = window.location.search;
   urlParams = new URLSearchParams(this.valores);
@@ -53,9 +53,9 @@ export class BuyComponent {
     this.aux=(JSON.parse(localStorage.getItem('carrito')||'[]'))
 
     price=price*cantidad
-    
+
     if (cantidad <= this.productBuy2.max &&
-      this.productBuy2.inInventory - this.productBuy2.min >= cantidad) {
+      this.productBuy2.inInventory - this.productBuy2.min >= cantidad && cantidad > 0) {
 
         this.cart=[
           ...this.aux,
@@ -73,14 +73,25 @@ export class BuyComponent {
       })
       this.cantidad = 0
       this.toastr.success("Producto Añadido Al carrito", "Exito")
+      setTimeout(() => {
+        window.location.reload();
+        }, 1000);
     } if (cantidad > this.productBuy2.max) {
       this.toastr.error("Superaste el maximo de articulos", "Error")
-    } if (this.productBuy2.inInventory - this.productBuy2.min < cantidad) {
-      this.toastr.error("Productos agotados ingresa una cantidad menor", "Error")
     }
-    if (this.productBuy2.max == this.productBuy2.inInventory) {
-      this.productBuy2.enabled = false;
+    if (this.productBuy2.inInventory - this.productBuy2.min < cantidad) {
+      this.productBuy2.inInventory=this.productBuy2.inInventory - this.productBuy2.min
+      this.toastr.info("Productos agotados Maximo de compra " +this.productBuy2.inInventory+" Unidades", "Info")
+      this.productBuy2.inInventory=this.productBuy2.inInventory + this.productBuy2.min
     }
+    if (cantidad == this.productBuy2.inInventory) {
+      this.productBuy2.inInventory=this.productBuy2.inInventory - this.productBuy2.min
+      this.toastr.info("Productos agotados Maximo de compra " +this.productBuy2.inInventory+" Unidades", "Info")
+    }
+    if (cantidad == 0) {
+      this.toastr.info("Error no puedes comprar 0 unidades", "Info")
+    }
+
   }
 
 

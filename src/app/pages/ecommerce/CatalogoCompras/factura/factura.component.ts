@@ -13,7 +13,7 @@ export class FacturaComponent {
 
   InvoiceCrear: InvoiceI={
     id:" ",
-    idtype:" ",
+    idtype:"",
     date:" " ,
     clientId:" ",
     clientName:" ",
@@ -35,6 +35,9 @@ export class FacturaComponent {
     console.log(this.InvoiceCrear)
   }
   CrearInvoice() {
+
+
+    if (this.InvoiceCrear.clientName.length>8 &&this.InvoiceCrear.idtype.length<=2 &&this.InvoiceCrear.clientId.length>8){
     this.services.createInvoice(this.InvoiceCrear).subscribe({
       next: data => {
 
@@ -51,6 +54,16 @@ export class FacturaComponent {
 
 
     })
+  }if(this.InvoiceCrear.clientName.length<=8){
+   this.toastr.info("Ingresar el nombre completo por favor", "Info Nombre")
+  }
+  if(this.InvoiceCrear.idtype.length>2 || this.InvoiceCrear.idtype.length<1 ){
+    this.toastr.info("Ingresar Un tipo de Id Valido", "Info Tipo de Id")
+   }
+   if(this.InvoiceCrear.clientId.length<8){
+    this.toastr.info("Documento muy corto, no valido", "Info Id")
+   }
+
 
 
   }

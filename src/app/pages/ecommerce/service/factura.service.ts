@@ -45,6 +45,10 @@ export class FacturaService {
       responseType : 'text' as 'json'
     })
   }
+  getTotalPages(): Observable<number> {
+    let direction = this.url + 'totalPages';
+    return this.http.get<number>(direction);
+  }
 
 
 

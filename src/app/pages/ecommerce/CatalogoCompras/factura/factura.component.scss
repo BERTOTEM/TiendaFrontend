@@ -4,10 +4,20 @@
  border: 2px solid rgba(255, 0, 0, 0.721);;
 }
 .search-results-container{
-
   height: 439px;
 
   overflow: auto;
-  
+  scroll-behavior: smooth;
 
+}
+.search-results-container::-webkit-scrollbar{
+  width: 7px;
+}
+button{
+margin-top: 10px;
+}
+
+.search-results-container::-webkit-scrollbar-thumb{
+ background: #df141ede;
+ border-radius: 20%;
 }
