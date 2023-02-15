@@ -3,7 +3,7 @@
   <input type="text" [(ngModel)]="ProductName" (ngModelChange)="buscar()" placeholder="Buscar">
       <div class="row g-lg-3">
         <div class="col-md-4"  *ngFor="let product1 of products">
-          <div class="card text-bg-dark border-warning " >
+          <div class="card  border-warning " >
             <img [src]="product1.img" class="card-img-top" alt="...">
             <div class="card-body">
 

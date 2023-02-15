@@ -34,6 +34,12 @@
   <button pButton (click)="(CrearInvoice())" pRipple type="button" label="Actualizar Producto"
   class="btn btn-warning">Pagar</button>
 </div>
+
+<div class="bg-warning tarjeta">
+  <div class="card-body h-100">
+    TOTAL:{{totalBill()| currency: 'COP' }}
+  </div>
+</div>
 </div>
 
 

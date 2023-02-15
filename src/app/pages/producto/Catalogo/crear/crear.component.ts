@@ -40,15 +40,23 @@ export class CrearComponent {
   }
 
   CrearProduct() {
-    this.services.createProduct(this.ProductCrear).subscribe({
-      next: data => {
-        if(this.ProductCrear.img.length >20 &&this.ProductCrear.name.length > 3 && this.ProductCrear.min <this.ProductCrear.max && this.ProductCrear.inInventory >0
-        ){
-          this.toastr.success("Producto agregado al catalogo", "exito");
-          console.log(data)
-          setTimeout(() => {
-            window.location.reload();
-            }, 1000);
+
+        if(this.ProductCrear.img.length >20 &&this.ProductCrear.name.length > 3 && this.ProductCrear.min <this.ProductCrear.max && this.ProductCrear.inInventory >0){
+
+            this.services.createProduct(this.ProductCrear).subscribe({
+              next: data => {
+                this.toastr.success("Producto agregado al catalogo", "exito");
+
+              },
+              error: error => {
+                console.log(error);
+                this.toastr.error("error", "Error de Creacion");
+                console.log(this.ProductCrear);
+              }
+            })
+            setTimeout(() => {
+              window.location.reload();
+              }, 1000);
         }if(this.ProductCrear.img.length <=20){
           this.toastr.info("Uri de imagen muy corta!", "Info");
         }
@@ -63,14 +71,7 @@ export class CrearComponent {
         }
 
 
-      },
-      error: error => {
-        console.log(error);
-        this.toastr.error("error", "Error de Creacion");
-        console.log(this.ProductCrear);
-      }
 
-    })
 
 
   }

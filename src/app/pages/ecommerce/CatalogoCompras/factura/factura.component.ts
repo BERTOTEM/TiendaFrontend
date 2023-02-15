@@ -63,10 +63,20 @@ export class FacturaComponent {
    if(this.InvoiceCrear.clientId.length<8){
     this.toastr.info("Documento muy corto, no valido", "Info Id")
    }
-
-
-
   }
+
+  totalBill(){
+    this.cart=JSON.parse(localStorage.getItem('carrito')||'[]');
+
+
+    const suma = this.cart.map(item=>  item.price).reduce(
+      (total, precio) => total + precio,
+      0
+    );
+    return suma;
+  }
+
+
   onScroll() {
     this.agregarProducto=this.agregarProducto+=4
     this.cart=this.InvoiceCrear.products?.slice(0,this.agregarProducto);

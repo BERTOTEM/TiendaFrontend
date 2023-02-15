@@ -12,6 +12,8 @@ export class HistorialCompraComponent {
 
   invoices : InvoiceI[]| any;
 
+  
+
   constructor(
     private service:FacturaService,
     private route : Router
@@ -21,11 +23,13 @@ export class HistorialCompraComponent {
 
   ngOnInit(): void {
     this.getFacturas();
+
   }
 
   getFacturas(): void {
     this.service.getAllInvoice().subscribe((data) => {
       this.invoices = data;
+      console.log(this.invoices.date)
     });
 
   }

@@ -89,7 +89,7 @@ export class BuyComponent {
       this.toastr.info("Productos agotados Maximo de compra " +this.productBuy2.inInventory+" Unidades", "Info")
     }
     if (cantidad == 0) {
-      this.toastr.info("Error no puedes comprar 0 unidades", "Info")
+      this.toastr.error("Error no puedes comprar 0 unidades", "Error")
     }
 
   }

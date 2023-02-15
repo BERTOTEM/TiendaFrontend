@@ -41,14 +41,22 @@ export class EditComponent {
   }
 
   EditProduct() {
-    this.services.editProduc(this.ProductEdit).subscribe({
-      next: data => {
-        if(this.ProductEdit.img.length >20 &&this.ProductEdit.name.length > 3 && this.ProductEdit.min <this.ProductEdit.max && this.ProductEdit.inInventory >0){
-        this.toastr.success("Producto Editado", "exito");
-        console.log(data)
+    
+        if(this.ProductEdit.img.length >20 &&this.ProductEdit.name.length > 3 && this.ProductEdit.min <this.ProductEdit.max && this.ProductEdit.inInventory >0 && this.ProductEdit.price>0){
         setTimeout(() => {
           window.location.reload();
-          }, 1000);
+          }, 2000);
+          this.services.editProduc(this.ProductEdit).subscribe({
+            next: data => {
+              this.toastr.success("Producto editado", "exito");
+
+            },
+            error: error => {
+              console.log(error);
+              this.toastr.error("error", "Error de Edicion");
+              console.log(this.ProductEdit);
+            }
+          })
           }
         if(this.ProductEdit.img.length <=20){
           this.toastr.info("Uri de imagen muy corta!", "Info");
@@ -62,13 +70,10 @@ export class EditComponent {
         if(this.ProductEdit.inInventory==0){
           this.toastr.info("El invenario es 0!", "Info");
         }
-      },
-      error: error => {
-        console.log(error);
-        this.toastr.error("error", "Error de Edicion");
-        console.log(this.ProductEdit);
-      }
-    })
+        if(this.ProductEdit.price==0){
+          this.toastr.info("El precio es 0!", "Info");
+        }
+
   }
 
 }
