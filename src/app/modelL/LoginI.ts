@@ -3,4 +3,9 @@ export  interface LoginI{
   password:string;
 }
 
-
+export interface UserI{
+  username: string;
+  password: string;
+  enabled:string;
+  roles: string[];
+}

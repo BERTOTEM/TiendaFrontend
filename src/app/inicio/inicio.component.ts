@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FacturaService } from '../pages/ecommerce/service/factura.service';
 import { Router } from '@angular/router';
 import { LoginI } from '../modelL/LoginI';
+import { LoginService } from '../ServicioLogin/login.service';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -13,7 +14,8 @@ export class InicioComponent {
     password:"",
   }
 
-  constructor(private servis:FacturaService, private route:Router){}
+  constructor(private servis:LoginService,
+     private route:Router){}
 
   onSubmit(){
     this.servis.login(this.login)

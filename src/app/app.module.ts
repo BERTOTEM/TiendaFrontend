@@ -14,12 +14,14 @@ import { RouterModule } from '@angular/router';
 import { PagesModule } from './pages/pages.module';
 import { InicioComponent } from './inicio/inicio.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './auth.interceptor';
+import { AuthInterceptor } from './Interceptor/auth.interceptor';
+import { RegistroComponent } from './registro/registro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent
+    InicioComponent,
+    RegistroComponent
 
   ],
   imports: [

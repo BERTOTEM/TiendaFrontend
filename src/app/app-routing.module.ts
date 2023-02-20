@@ -9,6 +9,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { BuyComponent } from './pages/ecommerce/CatalogoCompras/buy/buy.component';
 import { FacturaComponent } from './pages/ecommerce/CatalogoCompras/factura/factura.component';
 import { HistorialCompraComponent } from './pages/ecommerce/CatalogoCompras/historial-compra/historial-compra.component';
+import { RegistroComponent } from './registro/registro.component';
 
 const routes: Routes = [
   // {path:"",redirectTo : "catalogo",pathMatch:"full"},
@@ -16,6 +17,7 @@ const routes: Routes = [
   // {path: '**', pathMatch: 'full', redirectTo:'catalogo'}
   {path:"",redirectTo : "inicio",pathMatch:"full"},
   { path: 'inicio', component:InicioComponent },
+  { path: 'Registro', component:RegistroComponent },
   {
     path: 'Productos',
     component: ProductoComponent,
