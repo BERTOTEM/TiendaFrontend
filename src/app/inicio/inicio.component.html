@@ -1,4 +1,15 @@
-<button class="btn btn-outline-warning" routerLink="/Productos/catalogo">CRUD</button>
-<button  class="btn btn-outline-warning " routerLink="/Ecommers/catalogoCompra">E-commerce</button>
-
+<div class="login-container">
+  <h2>Iniciar sesión</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Nombre de usuario</label>
+      <input type="text"  name="username" [(ngModel)]="login.username">
+    </div>
+    <div>
+      <label for="password">Contraseña</label>
+      <input type="password"  name="password" [(ngModel)]="login.password">
+    </div>
+    <button type="submit">Iniciar sesión</button>
+  </form>
+</div>
 

@@ -34,7 +34,7 @@ export class ProductosCarritoComponent {
     this.service
       .getTotalPages()
       .subscribe((data) => (this.pages = new Array(data)));
-      console.log(this.pages)
+    
   }
   getPage(page: number): void {
     this.page = page;

@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { PagesModule } from './pages/pages.module';
 import { InicioComponent } from './inicio/inicio.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,15 @@ import { InicioComponent } from './inicio/inicio.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     RouterModule,
-    
+
 
 
   ],
-  providers: [HttpClientModule],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

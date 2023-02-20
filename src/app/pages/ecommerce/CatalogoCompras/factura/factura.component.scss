@@ -1,25 +1,28 @@
 .tarjeta{
  margin-top: 2%;
  border-radius: 20px;
- border: 2px solid rgba(255, 0, 0, 0.721);;
+ border: 2px solid #86A5D9;;
 }
 .search-results-container{
   height: 439px;
 
   overflow: auto;
   scroll-behavior: smooth;
+  color:#444545;
 
 }
 .search-results-container::-webkit-scrollbar{
   width: 7px;
+
 }
 button{
 margin-top: 10px;
 }
 
 .search-results-container::-webkit-scrollbar-thumb{
- background: #df141ede;
+ background: #86A5D9;
  border-radius: 20%;
+
 }
 
 img{
@@ -27,3 +30,4 @@ img{
   width: 100%;
 
 }
+

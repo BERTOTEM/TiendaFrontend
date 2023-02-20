@@ -12,3 +12,5 @@ export  interface productsI{
   name:string;
   price:number
 }
+
+
