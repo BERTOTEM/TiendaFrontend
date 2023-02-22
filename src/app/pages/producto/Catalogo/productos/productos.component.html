@@ -1,6 +1,8 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <app-crear > </app-crear>
+  <app-crear ></app-crear>
+  <app-crear-admin></app-crear-admin>
+
   <input type="text" [(ngModel)]="ProductName" (ngModelChange)="buscar()" placeholder="Buscar">
 
 
@@ -26,6 +28,7 @@
               <button (click)="borrado(product1.id)"  class="btn btn-outline-warning">Borrado</button>
 
               <app-edit [ProductEdit]="product1"></app-edit>
+
 
             </div>
           </div>

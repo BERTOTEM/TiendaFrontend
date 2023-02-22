@@ -9,7 +9,7 @@ export  interface InvoiceI {
 }
 export  interface productsI{
   product:string;
-  cantidad:string;
+  cantidad:number;
   name:string;
   price:number
 }

@@ -1,0 +1,48 @@
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+  </div>
+  <div class="modal-body">
+
+    <div class="container">
+      <div class="card text-center">
+        <div class="card-header font2">
+          <b>Crear Admin</b>
+        </div>
+        <div class="card-body p-4">
+          <div class="form-floating font2" style="margin-top: 20px;">
+              <div class="row g-3">
+                <div class="col-md-10">
+                  <label class="form-label">Email</label>
+                  <input type="text" class="form-control" [(ngModel)]="UserAdmin.username" >
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label ">Password</label>
+                  <input type="password" class="form-control" [(ngModel)]="UserAdmin.password" >
+                </div>
+
+                <div class="col-12">
+                  <button pButton (click)="(CrearAdmin())" pRipple type="button" label="Actualizar Producto"
+                  class="btn btn-warning">CrearAdmin</button>
+                </div>
+              </div>
+
+
+
+            <br>
+          </div>
+
+
+          <hr>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button"  class="btn btn-warning"
+      (click)="modal.close('Close click')">cerrar</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-warning" (click)="openVerticallyCentered(content)">Agregar Admin al Equipo</button>

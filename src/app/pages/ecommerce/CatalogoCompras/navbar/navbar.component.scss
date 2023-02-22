@@ -1,9 +1,44 @@
 .pacman{
 
-  width: 20%;
+  width: 10%;
 }
 col{
 padding: 0%;
 margin: 0%;
+}
+.navbar {
+  background-color: transparent 50% !important;
+  width: 100%;
+
+}
+i{
+
+font-size: 25px;
+}
+.cartnumber{
+  font-size: 8px;
+}
+.bi-cart{
+  font-size: 50px;
+}
+button{
+  width: 98%;
+  height: 50%;
+  font-size: 85%;
+  border-color: transparent;
+}
+.btn{
+
+  color: #FFC107;
+}
+.row{
+align-content: stretch;
+width: 100%;
+height: 100%;
+}
+.container{
+
+  width: 100%;
+  justify-content: flex-end !important;
 }
 

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { ProductI } from 'src/app/pages/producto/models/product-i';
+import { LoginService } from 'src/app/ServicioLogin/login.service';
 import { FacturaService } from '../../service/factura.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { FacturaService } from '../../service/factura.service';
   styleUrls: ['./buy.component.scss']
 })
 export class BuyComponent {
+  account!:string
   cart: Object[] = [];
   cantidad: number = 1;
   product1: any;
@@ -33,6 +35,7 @@ export class BuyComponent {
 
   constructor(
     private services: FacturaService,
+    private servicesL:LoginService,
     private toastr: ToastrService,
     private route: Router,
     private routert: ActivatedRoute
@@ -43,6 +46,11 @@ export class BuyComponent {
       this.productBuy2 = data;
     })
 
+    const decodedToken = this.servicesL
+    .DecodeToken(localStorage.getItem('jwt_token') || '[]');
+    this.account = decodedToken['sub'];
+
+
 
 
 
@@ -50,7 +58,7 @@ export class BuyComponent {
 
   addToCart(product: string, cantidad: number,name:string,price:number) {
 
-    this.aux=(JSON.parse(localStorage.getItem('carrito')||'[]'))
+    this.aux=(JSON.parse(localStorage.getItem(this.account)||'[]'))
 
     price=price*cantidad
 
@@ -66,7 +74,7 @@ export class BuyComponent {
           price,
           }
         ]
-      localStorage.setItem('carrito', JSON.stringify(this.cart));
+      localStorage.setItem(this.account, JSON.stringify(this.cart));
 
       this.services.updateIDInventario(product, cantidad).subscribe((data) => {
         console.log(data)

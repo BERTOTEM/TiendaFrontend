@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './Catalogo/navbar/navbar.component';
+import { CrearAdminComponent } from './Catalogo/crear-admin/crear-admin.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { NavbarComponent } from './Catalogo/navbar/navbar.component';
   CrearComponent,
   EditComponent,
   ProductosComponent,
-  NavbarComponent
+  NavbarComponent,
+  CrearAdminComponent
   ],
   exports:[CrearComponent,
     EditComponent,

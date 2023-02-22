@@ -1,30 +1,33 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { UserI } from '../modelL/LoginI';
-import { FacturaService } from '../pages/ecommerce/service/factura.service';
-import { LoginService } from '../ServicioLogin/login.service';
+import { UserI } from 'src/app/modelL/LoginI';
+import { LoginService } from 'src/app/ServicioLogin/login.service';
 
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.scss']
+  selector: 'app-crear-admin',
+  templateUrl: './crear-admin.component.html',
+  styleUrls: ['./crear-admin.component.scss']
 })
-export class RegistroComponent {
-
-  passwordConfirmar: string = ""
-  User: UserI = {
+export class CrearAdminComponent {
+  UserAdmin: UserI = {
     username: "",
     password: "",
     enabled: "true",
-    roles: ["ROLE_USER"]
+    roles: ["ROLE_ADMIN"]
   }
   constructor(private servis: LoginService,
-    private route: Router, private toastr: ToastrService,) { }
+    private route: Router, private toastr: ToastrService,private modalService: NgbModal) { }
+    ngOnInit(): void {
+    }
+    openVerticallyCentered(content: any) {
+      this.modalService.open(content, { centered: true });
+    }
 
 
-  onSubmit() {
-    this.servis.createUSer(this.User)
+    CrearAdmin() {
+    this.servis.createUSer(this.UserAdmin)
       .subscribe({
         next: data => {
           console.log(data)
@@ -44,7 +47,5 @@ export class RegistroComponent {
         }
       });
   }
-
-
 
 }
