@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LoginService } from 'src/app/ServicioLogin/login.service';
 import { InvoiceI, productsI } from '../../models/Invoice-i';
 import { FacturaService } from '../../service/factura.service';
 
@@ -10,21 +11,25 @@ import { FacturaService } from '../../service/factura.service';
   styleUrls: ['./factura.component.scss']
 })
 export class FacturaComponent {
-
+  fechaActual: Date = new Date();
   InvoiceCrear: InvoiceI={
     id:" ",
     idtype:"",
-    date:" " ,
+    date: this.fechaActual,
     clientId:" ",
     clientName:" ",
+    account:"",
     products:[],
   }
   cart:productsI[]=[]
   agregarProducto:number=4
   throttle :number=0;
   distance: number=1;
+  account!:string
+
   constructor(
     private services: FacturaService,
+    private servicesL: LoginService,
     private toastr: ToastrService,
     private route: Router,
   ){}
@@ -33,6 +38,17 @@ export class FacturaComponent {
     this.InvoiceCrear.products=(JSON
       .parse(localStorage.getItem('carrito')||'[]'))
     console.log(this.InvoiceCrear)
+
+
+    const decodedToken = this.servicesL
+    .DecodeToken(localStorage.getItem('jwt_token') || '[]');
+    this.account = decodedToken['sub'];
+    console.log(this.account)
+    this.InvoiceCrear.account=this.account;
+    //this.InvoiceCrear.date=this.fechaActual;
+    console.log(this.fechaActual)
+
+
   }
   CrearInvoice() {
 
@@ -43,7 +59,7 @@ export class FacturaComponent {
 
         this.toastr.success("Compra Realizada con exito", "exito");
         console.log(data)
-        localStorage.clear();
+        localStorage.removeItem('carrito');
         this.route.navigate(["/Ecommers/catalogoCompra"])
       },
       error: error => {

@@ -6,11 +6,13 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private route: Router,private toastr: ToastrService,) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     {
@@ -23,7 +25,9 @@ export class AuthInterceptor implements HttpInterceptor {
           headers: req.headers.set('Authorization', `Bearer ${accessToken}`)
         });
       }
-
+      if(accessToken===null){
+        this.route.navigate(["/inicio"])
+      }
       // Continúa la solicitud modificada
       return next.handle(req);
     }

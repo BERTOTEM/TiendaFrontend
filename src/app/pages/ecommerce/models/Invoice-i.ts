@@ -1,9 +1,10 @@
 export  interface InvoiceI {
   id:string;
   idtype:string;
-  date:string;
+  date:Date;
   clientId:string;
   clientName:string;
+  account:string;
   products:productsI[];
 }
 export  interface productsI{
@@ -12,5 +13,4 @@ export  interface productsI{
   name:string;
   price:number
 }
-
 

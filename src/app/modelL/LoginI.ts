@@ -9,3 +9,10 @@ export interface UserI{
   enabled:string;
   roles: string[];
 }
+export  interface DecodedTokenI {
+  exp:string;
+  iat:string;
+  role:[];
+  sub:string;
+}
+

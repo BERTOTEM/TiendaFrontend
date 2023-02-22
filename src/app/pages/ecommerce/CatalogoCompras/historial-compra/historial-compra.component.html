@@ -6,9 +6,9 @@
             <img src="../../../../../assets/img/bolsa.png" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-text"> </h5>
-              <h5 class="card-text"  > {{factura.clientName}}</h5>
+              <h5 class="card-text"> {{factura.account}}</h5>
               <p class="card-text"> Id: {{factura.clientId}}</p>
-              <p class="card-text"> fecha: {{factura.date}}</p>
+              <p class="card-text"> fecha: {{factura.date | date :'short'}}</p>
               <div class="dropdown">
                 <button class="btn bg-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Detalle

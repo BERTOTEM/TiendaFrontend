@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { LoginI, UserI } from '../modelL/LoginI';
+import { DecodedTokenI, LoginI, UserI } from '../modelL/LoginI';
+import jwt_decode from 'jwt-decode';
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +27,10 @@ export class LoginService {
       responseType : 'text' as 'json'
     })
   }
+
+  DecodeToken(token: string): DecodedTokenI {
+    let decoded =  jwt_decode(token);
+    return decoded as DecodedTokenI;
+  }
+
 }

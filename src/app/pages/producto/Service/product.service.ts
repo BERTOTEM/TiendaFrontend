@@ -10,29 +10,23 @@ export class ProductService {
   push(arg0: string) {
     throw new Error('Method not implemented.');
   }
-  private url: string = 'http://localhost:8080/';
+  private url: string = 'http://localhost:9090/';
 
   constructor(private http:HttpClient) { }
 
-  getPage(page:number): Observable<ProductI[]>{
-    let direction = this.url + 'pagination/' + page;
-    return this.http.get<ProductI[]>(direction);
-  }
+
   getAll(): Observable<ProductI[]>{
     let direction = this.url + 'getAllProducts' ;
     return this.http.get<ProductI[]>(direction);
   }
-  getProduct(id: any): Observable<ProductI> {
-    let direction = this.url + 'get/' + id;
-    return this.http.get<ProductI>(direction);
-  }
+
   getProductName(name: any): Observable<ProductI> {
     let direction = this.url + 'getName/' + name;
     return this.http.get<ProductI>(direction);
   }
 
   editProduc(product: ProductI): Observable<ProductI> {
-    let direction = this.url + 'update';
+    let direction = this.url + 'updateProductAll';
     return this.http.put<any>(direction, product,{
       responseType: 'text' as 'json'
     });
@@ -50,7 +44,7 @@ export class ProductService {
     });
   }
   createProduct(product : ProductI) : Observable<ProductI> {
-    let direction = this.url + 'create';
+    let direction = this.url + 'createProduct';
     return this.http.post<any>(direction, product, {
       responseType : 'text' as 'json'
     })

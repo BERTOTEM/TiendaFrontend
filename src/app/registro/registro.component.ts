@@ -26,7 +26,6 @@ export class RegistroComponent {
   onSubmit(){
     this.servis.createUSer(this.User)
     .subscribe({
-
       next:data=>{
         console.log(data)
         let x = JSON.stringify(data)//forma de tratar el error de forma adecuada sin romper el back
@@ -40,7 +39,7 @@ export class RegistroComponent {
         }
       },
       error:error =>{
-        this.toastr.error("Error de creacion el ususario ya existe", "Error")
+        this.toastr.error("Error de creacion, el ususario ya existe", "Error")
          console.log(error)
       }
     });
