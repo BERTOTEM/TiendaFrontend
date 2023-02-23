@@ -1,7 +1,15 @@
 img{
 
   width: 100%;
-  height: 500px;
+ height: 100%;
+}
+
+.card-img-top{
+
+  width: 85%;
+  margin-top: 5%;
+
+
 }
 input
 {
@@ -11,17 +19,25 @@ input
 }
 .card{
   align-items: center;
+  align-content: center;
   width: 100%;
-  height: 10%;
+  height: 100%;
+  margin: 10%;
   background-color: #444545;
   color:#F7FFF7;
 }
 .row
 {
 align-items: center;
-
+height: 100%;
+width: 100%;
 }
-
 .col-3{
   height: 100%;
 }
+.confi{
+display: flex;
+align-content: center !important;
+align-items: center !important;
+}
+

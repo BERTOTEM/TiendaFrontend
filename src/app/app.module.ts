@@ -14,14 +14,20 @@ import { RouterModule } from '@angular/router';
 import { PagesModule } from './pages/pages.module';
 import { InicioComponent } from './inicio/inicio.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './Interceptor/auth.interceptor';
+import { AuthInterceptor } from './ServicioLogin/Interceptor/auth.interceptor';
 import { RegistroComponent } from './registro/registro.component';
+import { JwtModule } from "@auth0/angular-jwt";
+import { ErroNotFoundComponent } from './erro-not-found/erro-not-found.component';
+export function tokenGetter() {
+  return localStorage.getItem("jwt_token");
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    RegistroComponent
+    RegistroComponent,
+    ErroNotFoundComponent
 
   ],
   imports: [
@@ -33,6 +39,14 @@ import { RegistroComponent } from './registro/registro.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     RouterModule,
+    [
+      HttpClientModule,
+      JwtModule.forRoot({
+        config: {
+          tokenGetter: tokenGetter,
+        },
+      }),
+    ],
 
 
 

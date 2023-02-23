@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from 'src/app/ServicioLogin/login.service';
 import { productsI } from '../../models/Invoice-i';
+import { FacturaService } from '../../service/factura.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +11,11 @@ import { productsI } from '../../models/Invoice-i';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  totalProducts!:number
 
   constructor(
     private services: LoginService,
+    private serviceFactura :FacturaService,
     private toastr: ToastrService,
     private route: Router,
   ) { }
@@ -31,18 +34,16 @@ export class NavbarComponent {
     } else {
       this.isAdminTrue = false
     }
-
-
+    this.serviceFactura.getCountPruducts().subscribe((data)=>(this.totalProducts=data))
   }
  totalItem() {
     this.cart = JSON.parse(localStorage.getItem(this.account) || '[]');
-
-
     const suma = this.cart.map(item => item.cantidad).reduce(
-      (total, precio) => total + precio,
+      (total, items) => total + items,
       0
     );
     return suma;
+
   }
 
 

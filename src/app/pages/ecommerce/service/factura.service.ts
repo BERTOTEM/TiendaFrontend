@@ -18,6 +18,11 @@ export class FacturaService {
     let direction = this.url + 'pagination/' + page;
     return this.http.get<ProductI[]>(direction,{ withCredentials: true });
   }
+  getCountPruducts(): Observable<number> {
+    let direction = this.url + 'countProducts';
+    return this.http.get<number>(direction);
+  }
+
   getProductName(name: any): Observable<ProductI> {
     let direction = this.url + 'getName/' + name;
     return this.http.get<ProductI>(direction);

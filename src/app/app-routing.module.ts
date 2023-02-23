@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes,CanActivate } from '@angular/router';
 import { ProductoComponent } from './pages/producto/producto.component';
 import { ProductosComponent } from './pages/producto/Catalogo/productos/productos.component'
 import { EcommerceComponent } from './pages/ecommerce/ecommerce.component';
@@ -10,6 +10,12 @@ import { BuyComponent } from './pages/ecommerce/CatalogoCompras/buy/buy.componen
 import { FacturaComponent } from './pages/ecommerce/CatalogoCompras/factura/factura.component';
 import { HistorialCompraComponent } from './pages/ecommerce/CatalogoCompras/historial-compra/historial-compra.component';
 import { RegistroComponent } from './registro/registro.component';
+import { AuthGuardService } from './ServicioLogin/AuthGuard/auth-guard-service.service';
+
+
+import {RoleGuardServiceService as RoleGuard} from './ServicioLogin/RoleGuard/role-guard-service.service';
+import { ErroNotFoundComponent } from './erro-not-found/erro-not-found.component';
+
 
 const routes: Routes = [
   // {path:"",redirectTo : "catalogo",pathMatch:"full"},
@@ -25,6 +31,10 @@ const routes: Routes = [
       {
         path: 'catalogo',
         component:ProductosComponent ,
+         canActivate : [RoleGuard],
+         data:{
+          expectedRole:"ROLE_ADMIN"
+        }
       }
     ]
   },
@@ -34,23 +44,23 @@ const routes: Routes = [
     children: [
       {
         path: 'catalogoCompra',
-        component:ProductosCarritoComponent ,
+        component:ProductosCarritoComponent , canActivate : [AuthGuardService]
       },
       {
         path: 'Compra',
-        component:BuyComponent ,
+        component:BuyComponent , canActivate : [AuthGuardService]
       },
       {
         path: 'Factura',
-        component:FacturaComponent ,
+        component:FacturaComponent , canActivate : [AuthGuardService]
       },
       {
         path: 'Historial',
-        component:HistorialCompraComponent ,
+        component:HistorialCompraComponent , canActivate : [AuthGuardService]
       },
     ],
   },
-  {path: '**', pathMatch: 'full', redirectTo:'inicio'}
+  {path: '**', component:ErroNotFoundComponent}
 ];
 @NgModule({
   imports: [CommonModule,RouterModule.forRoot(routes)],

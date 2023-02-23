@@ -36,8 +36,10 @@ export class CrearAdminComponent {
             this.toastr.error("" + data, "Error")
           } if (!x.match("Ya existe el usuario")) {
             this.toastr.success("Usuario Creado", "Exito")
+
             setTimeout(() => {
-              this.route.navigate(["/inicio"])
+              this.modalService.dismissAll();
+              this.route.navigate(["/Productos/catalogo"])
             }, 1000);
           }
         },
