@@ -38,6 +38,9 @@ Funcionalidades:
 ###### ●	Uso de Swagger 
 ###### ●	Historial de compra
 ###### ●	Carrito de compra
+###### ●	Carrito de compra personal por cuenta 
+###### ●	implementacion de JWT,guardianes  
+
 
 
 
@@ -51,3 +54,7 @@ Funcionalidades:
 ### Backs producto y Carrito
 ###### ●	https://github.com/BERTOTEM/ProductoBack.git
 ###### ●	https://github.com/BERTOTEM/Compras.git
+
+## Authors
+* Julian Roberto Mazo
+* David Santiago Benjumea
